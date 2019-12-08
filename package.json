@@ -1,0 +1,12 @@
+{
+  "name": "test-teach-express",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/mbickell/test-teach-express.git",
+  "author": "Matt",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js --exec babel-node --"
+  }
+}
