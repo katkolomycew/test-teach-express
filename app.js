@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import db from "./db/db";
+import { parse } from "path";
 
 const app = express();
 
@@ -51,6 +52,26 @@ app.post("/api/v1/todos", (req, res) => {
       todo
     });
   }
+});
+
+app.delete("/api/v1/todos/:id", (req, res) => {
+  const id = parseInt(req.params.id, 10);
+
+  db.map((todo, index) => {
+    if (todo.id === id) {
+      const todo = db.splice(index, 1);
+      return res.status(200).send({
+        success: "true",
+        message: "Todo deleted successfully",
+        deletedTodo: todo
+      });
+    } else {
+      return res.status(400).send({
+        success: "false",
+        message: "Todo does not exist"
+      });
+    }
+  });
 });
 
 const port = 5000 || process.env.PORT;
