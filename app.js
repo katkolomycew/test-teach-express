@@ -33,7 +33,7 @@ app.get("/api/v1/todos/:id", (req, rest) => {
 });
 
 app.post("/api/v1/todos", (req, res) => {
-  if (!req.body.title || req.body.description) {
+  if (!req.body.title || !req.body.description) {
     return res.status(400).send({
       success: "false",
       message: "Title and description are required"
