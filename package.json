@@ -5,7 +5,7 @@
   "repository": "https://github.com/mbickell/test-teach-express.git",
   "author": "Matt",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "nodemon app.js --exec babel-node --"
   }
